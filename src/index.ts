@@ -1,12 +1,24 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
-
-dotenv.config();
+import cors from 'cors';
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+dotenv.config();
+const port = process.env.PORT;
 
-app.get('/', (req: Request, res: Response) => {
+const corsOptions = {
+  origin: '*',
+  methods: 'GET, POST, PUT, DELETE, OPTIONS',
+  allowedHeaders: 'Content-Type, Authorization',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+app.post('/', (req: Request, res: Response) => {
+  console.log('HIT');
+  res.setHeader;
+  res.setHeader('Set-Cookie', 'myCookie=myValue');
   res.send('Express + TypeScript Server!');
 });
 
