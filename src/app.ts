@@ -9,7 +9,7 @@ const app: Express = express();
 app.use(cors(CORS_OPTIONS));
 
 // register routes
-app.use('*', routes);
+app.use('/', routes);
 
 app.listen(process.env.PORT, () => {
   console.log(
